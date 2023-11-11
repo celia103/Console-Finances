@@ -115,36 +115,34 @@ console.log("Average Change: " + averageChange.toFixed(2));
 
 //Find the greatest increase
 let maxIncrease = -Infinity;
-let maxItem = [];
+let maxMonth = "";
 
-for (let j = 1; j < totalMonths - 1; j++) {
+for (let j = 1; j < totalMonths; j++) {
 	let increase = finances[j][1] - finances[j - 1][1];
 	if (increase > maxIncrease) {
-		profit = finances[j];
+		maxMonth = finances[j][0];
 		maxIncrease = increase;
-		maxItem = profit;
 	}
 }
 
 console.log(
 	"Greatest Increase in Profits/Losses: " +
-		maxItem[0] +" ($" +	maxIncrease + ")" 
+		maxMonth +" ($" +	maxIncrease + ")" 
 );
 
 //Find the greatest Decrease
 let maxDecrease = Infinity;
-let minItem = [];
+let minMonth = "";
 
-for (let j = 1; j < totalMonths - 1; j++) {
+for (let j = 1; j < totalMonths; j++) {
 	let decrease = finances[j][1] - finances[j - 1][1];
 	if (decrease < maxDecrease) {
-		lost = finances[j];
-		maxDecrease = decrease;
-		minItem = lost;
+		minMonth = finances[j][0];
+		maxDecrease = decrease;		
 	}
 }
 
 console.log(
 	"Greatest Decrease in Profits/Losses: " +
-		minItem[0] +" ($" +	maxDecrease + ")" 
+		minMonth +" ($" +	maxDecrease + ")" 
 );
